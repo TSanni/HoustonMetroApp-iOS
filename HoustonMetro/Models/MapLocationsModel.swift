@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+struct MapLocationsModel: Identifiable {
+    let id = UUID()
+    
+    let latitude: Double
+    let longitude: Double
+    
+    let name: String
+    
+    static let MapLocationsModelHolder = MapLocationsModel(latitude: 29.71137, longitude: -95.62941, name: "")
+}
+

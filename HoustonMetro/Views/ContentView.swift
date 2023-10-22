@@ -6,38 +6,106 @@
 //
 
 import SwiftUI
-import Combine
-
 
 
 struct ContentView: View {
     @StateObject var metroInfo = MetroInfoViewModel()
-    
+    @State private var showSettings: Bool = false
+    @State private var showMap: Bool = false
+    @State private var date: Date? = nil
     var body: some View {
-        
-        List {
+        VStack {
+            VStack(alignment: .leading) {
+                Text("Route \(metroInfo.routeSelectionPicker.RouteName)")
+                    .font(.largeTitle)
+                    .bold()
+                Text(metroInfo.stopSelectionPicker.Name)
+                    .font(.headline)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+
+            Spacer()
             
-            /// Route picker
-            Section("Routes") {
-                Picker("Route", selection: $metroInfo.routeSelection) {
-                    ForEach(metroInfo.routes.value) { item in
-                        Text(item.RouteName)
-                            .tag(item.RouteName)
-                    }
+            if metroInfo.dataExists {
+                VStack {
+                    Text("Next arrival at... ")
+                        .font(.headline)
+
+                    Text(metroInfo.earliestArrivalForStop.ArrivalTime)
+                        .font(.largeTitle)
+                        .bold()
+                    
+                    BusAnimationView()
+                        .environmentObject(metroInfo)
+
+                        .padding()
+
+                }
+            } else {
+                Text("--")
+                    .font(.largeTitle)
+                    .bold()
+
+            }
+            
+
+            
+            Spacer()
+            
+            if !metroInfo.dataExists {
+                VStack {
+                    Text("No upcoming arrivals found. Please try another stop or route")
+                        .multilineTextAlignment(.center)
+                }
+            } else {
+                if let date = date {
+                    Text("Last checked: \(date)")
+                        .multilineTextAlignment(.center)
+
                 }
             }
-        
-            /// Stop picker
-            Section("Stops") {
-                Picker("Stops", selection: $metroInfo.stopSelection) {
-                    ForEach(metroInfo.stopsForRoute.value) { item in
-                        Text(item.Name)
-                            .tag(item.Name)
-                    }
-                }
+            
+        }
+        .onReceive(metroInfo.$dataExists) { dataResult in
+            if dataResult {
+                date = Date.now
             }
         }
         .padding()
+        .background {
+            metroInfo.dataExists ? K.successColor.ignoresSafeArea() : K.failColor.ignoresSafeArea()
+        }
+        .sheet(isPresented: $showSettings) {
+            RouteAndStopPickerView()
+                .environmentObject(metroInfo)
+        }
+        .sheet(isPresented: $showMap) {
+            MapView()
+                .environmentObject(metroInfo)
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                
+                NavigationLink {
+                    MapView()
+                        .environmentObject(metroInfo)
+                } label: {
+                    Image(systemName: "map.fill")
+
+                }
+                .tint(.white)
+            }
+            
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    showSettings.toggle()
+                } label: {
+                    Image(systemName: "slider.vertical.3")
+                }
+                .tint(.white)
+            }
+        }
+       
     }
     
     
@@ -52,5 +120,6 @@ struct ContentView: View {
 #Preview {
     NavigationView {
         ContentView()
+            .environmentObject(MetroInfoViewModel())
     }
 }

@@ -8,11 +8,27 @@
 import SwiftUI
 
 struct BusAnimationView: View {
+    @State private var startBusAnimation: Bool = false
+    @EnvironmentObject var metroInfo: MetroInfoViewModel
+
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Image(systemName: "bus")
+                .font(.largeTitle)
+                .scaleEffect(startBusAnimation ? 2 : 1.5)
+        }
+        .onReceive(metroInfo.$dataExists) { _ in
+            print("DATA UPDATED")
+            withAnimation(.linear(duration: 1).repeatCount(5, autoreverses: true)) {
+                startBusAnimation.toggle()
+            }
+        }
+
     }
 }
 
 #Preview {
     BusAnimationView()
+        .environmentObject(MetroInfoViewModel())
 }

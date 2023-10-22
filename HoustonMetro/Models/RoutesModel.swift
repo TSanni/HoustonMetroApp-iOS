@@ -9,20 +9,25 @@ import Foundation
 
 
 struct RoutesModel: Codable {
-    let value: [AllRoutes]
+    let value: [Route]
     
-    static let AllRoutesModelHolder = RoutesModel(value: [AllRoutes(RouteId: "RouteId", RouteName: "002", LongName: "Bellaire")])
+    static let AllRoutesModelHolder = RoutesModel(value: [Route(RouteId: "Ho414_4620_002", RouteName: "002", LongName: "Bellaire")])
 }
 
 
-struct AllRoutes: Codable, Identifiable {
+struct Route: Codable, Identifiable, Hashable {
     
     var id: String {
-        return RouteName + " - " + LongName
+        return RouteId
     }
     
+    var fullName: String {
+        return RouteName + " - " + LongName
+    }
     
     let RouteId: String
     let RouteName: String
     let LongName: String
+    
+    static let RouteHolder = Route(RouteId: "Ho414_4620_002", RouteName: "002", LongName: "Bellaire")
 }

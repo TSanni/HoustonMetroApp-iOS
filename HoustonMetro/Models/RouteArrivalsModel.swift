@@ -9,11 +9,51 @@ import Foundation
 
 
 struct RouteArrivalsModel: Codable {
-    let value: [RouteValue]
+    let value: [RouteArrivalsValue]
+    
+    
+    static let RouteArrivalModelHolder = RouteArrivalsModel(value:
+                                                                [RouteArrivalsValue(
+                                                                    IsRealTime: true,
+                                                                    DirectionText: "",
+                                                                    ArrivalId: "",
+                                                                    AgencyId: "",
+                                                                    AgencyAbbreviation: "",
+                                                                    ServiceDate: "",
+                                                                    LocalArrivalTime: "",
+                                                                    LocalDepartureTime: "",
+                                                                    UtcArrivalTime: "",
+                                                                    UtcDepartureTime: "",
+                                                                    DestinationName: "",
+                                                                    DestinationStopId: "",
+                                                                    DirectionId: "",
+                                                                    Direction: 0,
+                                                                    RouteId: "",
+                                                                    ServiceId: "",
+                                                                    StopId: "",
+                                                                    TripId: "",
+                                                                    LocalTripStartTime: "",
+                                                                    LocalTripEndTime: "",
+                                                                    StopName: "",
+                                                                    StopSequence: 0,
+                                                                    RouteName: "",
+                                                                    RouteType: "",
+                                                                    DelaySeconds: 0,
+                                                                    VehicleID: nil,
+                                                                    CarCount: 0, 
+                                                                    Frequency: 0,
+                                                                    ConfidenceLevel: nil,
+                                                                    Status: nil,
+                                                                    DestinationStopName: "",
+                                                                    ArrivalTime: "No arrival times",
+                                                                    ScheduledTime: ""
+                                                                )
+                                                                ]
+    )
 }
 
 
-struct RouteValue: Codable {
+struct RouteArrivalsValue: Codable {
     let IsRealTime: Bool
     let DirectionText: String
     let ArrivalId: String
@@ -41,6 +81,42 @@ struct RouteValue: Codable {
     let DestinationStopName: String
     let ArrivalTime: String
     let ScheduledTime: String
+    
+    static let RouteArrivalsValueHolder = RouteArrivalsValue(
+        IsRealTime: true,
+        DirectionText: "",
+        ArrivalId: "",
+        AgencyId: "",
+        AgencyAbbreviation: "",
+        ServiceDate: "",
+        LocalArrivalTime: "",
+        LocalDepartureTime: "",
+        UtcArrivalTime: "",
+        UtcDepartureTime: "",
+        DestinationName: "",
+        DestinationStopId: "",
+        DirectionId: "",
+        Direction: 0,
+        RouteId: "",
+        ServiceId: "",
+        StopId: "",
+        TripId: "",
+        LocalTripStartTime: "",
+        LocalTripEndTime: "",
+        StopName: "",
+        StopSequence: 0,
+        RouteName: "",
+        RouteType: "",
+        DelaySeconds: 0,
+        VehicleID: nil,
+        CarCount: 0,
+        Frequency: 0,
+        ConfidenceLevel: nil,
+        Status: nil,
+        DestinationStopName: "",
+        ArrivalTime: "No arrival times",
+        ScheduledTime: ""
+    )
     
     
 }

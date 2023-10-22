@@ -11,7 +11,11 @@ import SwiftUI
 struct HoustonMetroApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ContentView()
+                    .preferredColorScheme(.dark)
+            }
+            .navigationViewStyle(.stack)
         }
     }
 }
