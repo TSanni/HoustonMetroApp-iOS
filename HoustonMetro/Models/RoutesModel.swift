@@ -1,5 +1,5 @@
 //
-//  Routes.swift
+//  RoutesModel.swift
 //  HoustonMetro
 //
 //  Created by Tomas Sanni on 10/9/23.
@@ -8,17 +8,17 @@
 import Foundation
 
 
-struct Routes: Codable {
+struct RoutesModel: Codable {
     let value: [AllRoutes]
     
-    static let AllRoutesModelHolder = Routes(value: [AllRoutes(RouteId: "RouteId", RouteName: "002", LongName: "LongName")])
+    static let AllRoutesModelHolder = RoutesModel(value: [AllRoutes(RouteId: "RouteId", RouteName: "002", LongName: "Bellaire")])
 }
 
 
 struct AllRoutes: Codable, Identifiable {
     
     var id: String {
-        return RouteId
+        return RouteName + " - " + LongName
     }
     
     
