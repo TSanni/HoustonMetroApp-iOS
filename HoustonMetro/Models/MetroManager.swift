@@ -1,5 +1,5 @@
 //
-//  NetworkManager.swift
+//  MetroManager.swift
 //  HoustonMetro
 //
 //  Created by Tomas Sanni on 10/12/23.
@@ -9,9 +9,9 @@ import Foundation
 import Combine
 //TODO: Update function descriptions
 
-class NetworkManager {
+class MetroManager {
     
-    static let instance = NetworkManager()
+    static let instance = MetroManager()
     
     var cancellables = Set<AnyCancellable>()
     
