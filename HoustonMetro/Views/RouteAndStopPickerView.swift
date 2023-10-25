@@ -9,52 +9,65 @@ import SwiftUI
 
 struct RouteAndStopPickerView: View {
     @EnvironmentObject var metroInfo: MetroInfoViewModel
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         
-        List {
-            
-            /// Route picker
-            Section("Routes") {
-                Picker("Route", selection: $metroInfo.routeSelectionPicker) {
-                    ForEach(metroInfo.routes.value) { item in
-                        Text(item.fullName)
-                            .tag(item)
+        VStack {
+       
+            List {
+                
+                /// Route picker
+                Section("Routes") {
+                    Picker("Route", selection: $metroInfo.routeSelectionPicker) {
+                        ForEach(metroInfo.routes.value) { item in
+                            Text(item.fullName)
+                                .tag(item)
+                        }
+                    }
+                    
+                }
+                
+                /// Stop picker
+                Section("Stops") {
+                    Picker("Stops", selection: $metroInfo.stopSelectionPicker) {
+                        ForEach(metroInfo.stopsForRoute) { item in
+                            Text(item.Name)
+                                .tag(item)
+                        }
                     }
                 }
-            }
-            
-            
-        
-            /// Stop picker
-            Section("Stops") {
-                Picker("Stops", selection: $metroInfo.stopSelectionPicker) {
-                    ForEach(metroInfo.stopsForRoute) { item in
-                        Text(item.Name)
-                            .tag(item)
-                    }
+                
+                
+                Section("About") {
+                    Link("About the Developer", destination: K.linkedInURL)
+                    
+                    Link("Follow Developer on X (Formerly Twitter)", destination: K.twitterURL)
+                    
+                    Link("View Developer's GitHub", destination: K.gitHubURL)
                 }
+                .tint(.white)
+                
             }
             
-            
-//            Section("Arrival times for this stop") {
-//                Text(metroInfo.earliestArrivalForStop.ArrivalTime)
-//            }
-            
-            Section("About") {
-                Link("About the Developer", destination: K.linkedInURL)
-                
-                Link("Follow Developer on X (Formerly Twitter)", destination: K.twitterURL)
-                
-                Link("View Developer's GitHub", destination: K.gitHubURL)
+            Button {
+                dismiss()
+            } label: {
+                Image(systemName: "arrow.down")
+                    .font(.largeTitle)
             }
             .tint(.white)
             
         }
         .padding()
+        
     }
 }
 
 #Preview {
-    RouteAndStopPickerView()
-        .environmentObject(MetroInfoViewModel())
+//    NavigationView {
+        RouteAndStopPickerView()
+            .environmentObject(MetroInfoViewModel())
+//    }
+    
 }
+

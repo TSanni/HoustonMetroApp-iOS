@@ -11,8 +11,8 @@ import SwiftUI
 
 struct K {
     
-    static let successColor = Color(uiColor: #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1))
-    static let failColor = Color(uiColor: #colorLiteral(red: 0.5807225108, green: 0.066734083, blue: 0, alpha: 1))
+    static let successColor = Color(uiColor: #colorLiteral(red: 0, green: 0.3294117647, blue: 0.5764705882, alpha: 1))
+    static let failColor = Color(uiColor: #colorLiteral(red: 0.5803921569, green: 0.06666666667, blue: 0, alpha: 1))
     
     static let linkedInURL = URL(string: "https://www.linkedin.com/in/tomas-sanni")!
     static let gitHubURL = URL(string: "https://github.com/TSanni")!

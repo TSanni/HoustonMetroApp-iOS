@@ -16,7 +16,8 @@ class MetroManager {
     var cancellables = Set<AnyCancellable>()
     
     
-    /// Uses networking to get all routes from a URL, then assigns that value to @Published var routes
+    
+    /// Gets all routes and returns a RoutesModel
     func getAllRoutes(completion: @escaping(_ returnedRoutes: RoutesModel) -> Void)  {
         print("getAllRoutes method called")
         
@@ -52,8 +53,7 @@ class MetroManager {
     }
     
     
-    /// Uses networking to get all stops for a particular route
-    /// - Parameter routeId: The routeID that will come from the MetroAPI
+    /// Gets all stops for the passed in routeId and returns a RouteStopsModel
     func getAllStopsForRoute(routeId: String, completion: @escaping(_ returnedStops: RouteStopsModel) -> Void)  {
         print("getAllStopsForRoute method called!")
         
@@ -82,7 +82,6 @@ class MetroManager {
                         
                 }
             } receiveValue: { returnedStops in
-                print("\n\n\n\n RETURNED STOPS: \(returnedStops) \n\n\n\n\n")
                 completion(returnedStops)
             }
             .store(in: &cancellables)
@@ -90,15 +89,7 @@ class MetroManager {
         
     }
     
-    
-    
-    
-    
-    
-    /// This function will get all arrival for the specified routeId , then assign the earliest arrival time to @Published var nextArrivalTimeForChosenStop.
-    /// If empty, @Published var nextArrivalTimeForChosenStop will be assigned "No upcoming arrivals"
-    /// - Parameters:
-    ///   - routeId: this will be used in the network call to get all arrivals for a particular route
+    /// Gets all arrivals for the passed in routeId and returns a RouteArrivalsModel
     func getAllArrivalsForRoute(routeId: String, completion: @escaping (_ arrivals: RouteArrivalsModel) -> Void) {
         print("getAllArrivalsForRoute method called!")
         
@@ -123,7 +114,6 @@ class MetroManager {
                         print("FINISHED DECODING RouteArrivalsModel.. GOT ALL ARRIVALS FOR PASSED IN ROUTEID")
                     case .failure(let error):
                         print("THERE WAS AN ERROR DECODING RouteArrivalsModel: \(error)")
-//                        throw NetworkErrors.failedToLoadArrivals
                 }
             } receiveValue: { returnedArrivals in
                 completion(returnedArrivals)
@@ -137,23 +127,5 @@ class MetroManager {
 }
 
 
-
-
-enum NetworkErrors: Error {
-    case failedToLoadRoutes
-    case failedToLoadStops
-    case failedToLoadArrivals
-    
-    var description: String {
-        switch self {
-            case .failedToLoadRoutes:
-                return "Failed to load routes. Check internet connection."
-            case .failedToLoadStops:
-                return "Failed to load stops. Check internet connection."
-            case .failedToLoadArrivals:
-                return "Failed to load arrivals. Check internet connection."
-        }
-    }
-}
 
 

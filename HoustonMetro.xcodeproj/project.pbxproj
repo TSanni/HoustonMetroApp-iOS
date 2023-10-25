@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		8330D9132AE4F3A9000EF1C3 /* BusAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330D9122AE4F3A9000EF1C3 /* BusAnimationView.swift */; };
+		8330D9152AE5F2C0000EF1C3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330D9142AE5F2C0000EF1C3 /* NetworkManager.swift */; };
+		8330D9172AE60933000EF1C3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330D9162AE60933000EF1C3 /* HomeView.swift */; };
+		8330D9192AE60979000EF1C3 /* NoInternetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330D9182AE60979000EF1C3 /* NoInternetView.swift */; };
 		838CE9E82AD8CB3B005C21B7 /* StopsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838CE9E72AD8CB3B005C21B7 /* StopsModel.swift */; };
-		838CE9EA2AD8E01C005C21B7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838CE9E92AD8E01C005C21B7 /* NetworkManager.swift */; };
+		838CE9EA2AD8E01C005C21B7 /* MetroManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838CE9E92AD8E01C005C21B7 /* MetroManager.swift */; };
 		838CE9EC2ADC917B005C21B7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838CE9EB2ADC917A005C21B7 /* MapView.swift */; };
 		8396E5092AD2F93700293314 /* HoustonMetroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8396E5082AD2F93700293314 /* HoustonMetroApp.swift */; };
 		8396E50B2AD2F93700293314 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8396E50A2AD2F93700293314 /* ContentView.swift */; };
@@ -27,8 +30,12 @@
 
 /* Begin PBXFileReference section */
 		8330D9122AE4F3A9000EF1C3 /* BusAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusAnimationView.swift; sourceTree = "<group>"; };
+		8330D9142AE5F2C0000EF1C3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		8330D9162AE60933000EF1C3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		8330D9182AE60979000EF1C3 /* NoInternetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetView.swift; sourceTree = "<group>"; };
+		8330D94F2AE6C7EA000EF1C3 /* HoustonMetro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HoustonMetro.entitlements; sourceTree = "<group>"; };
 		838CE9E72AD8CB3B005C21B7 /* StopsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopsModel.swift; sourceTree = "<group>"; };
-		838CE9E92AD8E01C005C21B7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		838CE9E92AD8E01C005C21B7 /* MetroManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroManager.swift; sourceTree = "<group>"; };
 		838CE9EB2ADC917A005C21B7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		8396E5052AD2F93700293314 /* HoustonMetro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoustonMetro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8396E5082AD2F93700293314 /* HoustonMetroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoustonMetroApp.swift; sourceTree = "<group>"; };
@@ -76,6 +83,7 @@
 		8396E5072AD2F93700293314 /* HoustonMetro */ = {
 			isa = PBXGroup;
 			children = (
+				8330D94F2AE6C7EA000EF1C3 /* HoustonMetro.entitlements */,
 				8396E51F2AD4D87000293314 /* Info.plist */,
 				8396E5082AD2F93700293314 /* HoustonMetroApp.swift */,
 				8396E51C2AD4D05C00293314 /* Models */,
@@ -101,7 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				8396E51A2AD4CC7800293314 /* RoutesModel.swift */,
-				838CE9E92AD8E01C005C21B7 /* NetworkManager.swift */,
+				838CE9E92AD8E01C005C21B7 /* MetroManager.swift */,
 				8396E5202AD61CF000293314 /* RouteStopsModel.swift */,
 				8396E5162AD3450E00293314 /* RouteArrivalsModel.swift */,
 				83C1EBE32AE3B425006E528B /* MapLocationsModel.swift */,
@@ -113,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				8396E5232AD73B9C00293314 /* MetroInfoViewModel.swift */,
+				8330D9142AE5F2C0000EF1C3 /* NetworkManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -121,6 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				8396E50A2AD2F93700293314 /* ContentView.swift */,
+				8330D9162AE60933000EF1C3 /* HomeView.swift */,
+				8330D9182AE60979000EF1C3 /* NoInternetView.swift */,
 				8396E5272AD7548800293314 /* RouteAndStopPickerView.swift */,
 				838CE9EB2ADC917A005C21B7 /* MapView.swift */,
 				8330D9122AE4F3A9000EF1C3 /* BusAnimationView.swift */,
@@ -217,8 +228,9 @@
 			files = (
 				838CE9E82AD8CB3B005C21B7 /* StopsModel.swift in Sources */,
 				8396E5282AD7548800293314 /* RouteAndStopPickerView.swift in Sources */,
+				8330D9192AE60979000EF1C3 /* NoInternetView.swift in Sources */,
 				83C1EBE12AE0DA33006E528B /* InfoForRouteModel.swift in Sources */,
-				838CE9EA2AD8E01C005C21B7 /* NetworkManager.swift in Sources */,
+				838CE9EA2AD8E01C005C21B7 /* MetroManager.swift in Sources */,
 				838CE9EC2ADC917B005C21B7 /* MapView.swift in Sources */,
 				8396E5172AD3450E00293314 /* RouteArrivalsModel.swift in Sources */,
 				8396E50B2AD2F93700293314 /* ContentView.swift in Sources */,
@@ -227,6 +239,8 @@
 				8396E5212AD61CF000293314 /* RouteStopsModel.swift in Sources */,
 				8396E5092AD2F93700293314 /* HoustonMetroApp.swift in Sources */,
 				8396E51B2AD4CC7800293314 /* RoutesModel.swift in Sources */,
+				8330D9152AE5F2C0000EF1C3 /* NetworkManager.swift in Sources */,
+				8330D9172AE60933000EF1C3 /* HomeView.swift in Sources */,
 				8330D9132AE4F3A9000EF1C3 /* BusAnimationView.swift in Sources */,
 				8396E51E2AD4D74B00293314 /* Constants.swift in Sources */,
 			);
@@ -359,6 +373,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HoustonMetro/HoustonMetro.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HoustonMetro/Preview Content\"";
@@ -366,11 +381,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HoustonMetro/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Houston Metro";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -379,6 +396,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sannideveloper.HoustonMetro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -390,6 +409,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HoustonMetro/HoustonMetro.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HoustonMetro/Preview Content\"";
@@ -397,11 +417,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HoustonMetro/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Houston Metro";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -410,6 +432,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sannideveloper.HoustonMetro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

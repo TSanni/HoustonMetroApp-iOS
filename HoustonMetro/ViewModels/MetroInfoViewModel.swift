@@ -13,7 +13,7 @@ class MetroInfoViewModel: ObservableObject {
     // These two published properties will work with SwiftUI picker views
     @Published var routeSelectionPicker: Route = Route.RouteHolder
     @Published var stopSelectionPicker: Stops = Stops.StopsHolder
-
+    
     // These three published properties will be updated with network calls and will work with model structs
     @Published var routes: RoutesModel = RoutesModel.AllRoutesModelHolder
     @Published var stopsForRoute: [Stops] = [Stops.StopsHolder]
@@ -21,6 +21,8 @@ class MetroInfoViewModel: ObservableObject {
     
     // This published properties will work with the UI
     @Published var dataExists: Bool = false
+    @Published  var date: Date? = nil
+    
     
     //These published properties will work with Map
     @Published var locations: [MapLocationsModel] = []
@@ -29,41 +31,26 @@ class MetroInfoViewModel: ObservableObject {
     private let mapSpan: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
     
     var cancellables = Set<AnyCancellable>()
-
+    
     
     init() {
-        NetworkManager.instance.getAllRoutes { [weak self] returnedRoutes in
-            self?.routes = returnedRoutes
-        }
+        //        MetroManager.instance.getAllRoutes { [weak self] returnedRoutes in
+        //            self?.routes = returnedRoutes
+        //        }
         
-
+        getAllRoutes()
         routePickerSubscriber()
         stopPickerSubscriber()
     }
     
-    private func getAllStopsForRoute(routeId: String) {
-        
-        NetworkManager.instance.getAllStopsForRoute(routeId: routeId) { [weak self] returnedStops in
-            
-            if returnedStops.value.isEmpty {
-                print("\n\n\n NO STOPS!!!! \n\n\n")
-                self?.dataExists = false
-                self?.stopsForRoute = [Stops.StopsHolder]
-                self?.stopSelectionPicker = Stops.StopsHolder
-
-            } else {
-//                self?.dataExists = true
-                self?.stopsForRoute = returnedStops.value
-                self?.stopSelectionPicker = returnedStops.value[0]
-            }
-            
+    func getAllRoutes() {
+        MetroManager.instance.getAllRoutes { [weak self] returnedRoutes in
+            self?.routes = returnedRoutes
         }
     }
-
     
-    /// This function subscribes to @Published var routeSelectionPicker
-    ///
-    /// Passes in the route to getAllStopsForRoute(routeId:) method each time $routeSelectionPicker is updated
+    
+    /// This function subscribes to  @Published routeSelectionPicker and is called each time routeSelectionPicker is updated
     private func routePickerSubscriber() {
         print("Route selection picker subscriber activated")
         
@@ -78,21 +65,18 @@ class MetroInfoViewModel: ObservableObject {
     
     
     
-    /// This function subscribes to @Published var stopSelectionPicker
-    ///
-    /// Passes in the current value for @Published var routeSelectionPicker AND also the value for @Published var stopSelectionPicker
+    /// This function subscribes to @Published stopSelectionPicker and is called each time stopSelectionPicker is updated
     private func stopPickerSubscriber() {
         print("Stop selection picker subscriber activated")
-
+        
         $stopSelectionPicker
             .sink { stop in
                 self.locations = []
                 
-                NetworkManager.instance.getAllArrivalsForRoute(routeId: self.routeSelectionPicker.RouteName) { arrivals in
+                MetroManager.instance.getAllArrivalsForRoute(routeId: self.routeSelectionPicker.RouteName) { arrivals in
                     self.filterForEarliestArrival(arrivals: arrivals, stop: stop)
                 }
                 
-                //TODO: Get map coordinates for stop
                 let latitude = stop.Lat
                 let longitude = stop.Lon
                 let stopName = stop.Name
@@ -105,12 +89,32 @@ class MetroInfoViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-
+    
+    
+    /// Communicates with MetroManager to get all Stops for passed in routeId
+    private func getAllStopsForRoute(routeId: String) {
+        
+        MetroManager.instance.getAllStopsForRoute(routeId: routeId) { [weak self] returnedStops in
+            
+            if returnedStops.value.isEmpty {
+                print("\n\n\n NO STOPS!!!! \n\n\n")
+                self?.dataExists = false
+                self?.stopsForRoute = [Stops.StopsHolder]
+                self?.stopSelectionPicker = Stops.StopsHolder
+                
+            } else {
+                self?.stopsForRoute = returnedStops.value
+                self?.stopSelectionPicker = returnedStops.value[0]
+            }
+            
+        }
+    }
 }
 
 
 extension MetroInfoViewModel {
     
+    /// This function takes in all arrivals for a particular route and a specified stop, then filters to ensure the arrival's stopID and the stop's stopID are equal
     private func filterForEarliestArrival(arrivals: RouteArrivalsModel, stop: Stops) {
         var earliestArrivalsForStop: [RouteArrivalsValue] = []
         
@@ -174,14 +178,12 @@ extension MetroInfoViewModel {
         
         self.earliestArrivalForStop = earliestArrivalsForStop[0]
         self.dataExists = true
-
-//        for i in earliestArrivalsForStop {
-//            print("\nARRIVAL VALUE: \(i)\n")
-//        }
+        self.date = Date.now
+        
     }
     
-
-        
+    
+    
     /// The metro API dates and times are hard to read. This function converts those dates to a readable format
     /// - Parameter stringedDate: The hard to read date is the value passed in
     /// - Returns: A String is returned as a readable date and time

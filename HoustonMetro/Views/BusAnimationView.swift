@@ -19,7 +19,6 @@ struct BusAnimationView: View {
                 .scaleEffect(startBusAnimation ? 2 : 1.5)
         }
         .onReceive(metroInfo.$dataExists) { _ in
-            print("DATA UPDATED")
             withAnimation(.linear(duration: 1).repeatCount(5, autoreverses: true)) {
                 startBusAnimation.toggle()
             }
