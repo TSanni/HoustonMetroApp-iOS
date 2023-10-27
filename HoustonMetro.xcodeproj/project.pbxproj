@@ -11,7 +11,6 @@
 		8330D9152AE5F2C0000EF1C3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330D9142AE5F2C0000EF1C3 /* NetworkManager.swift */; };
 		8330D9172AE60933000EF1C3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330D9162AE60933000EF1C3 /* HomeView.swift */; };
 		8330D9192AE60979000EF1C3 /* NoInternetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330D9182AE60979000EF1C3 /* NoInternetView.swift */; };
-		838CE9E82AD8CB3B005C21B7 /* StopsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838CE9E72AD8CB3B005C21B7 /* StopsModel.swift */; };
 		838CE9EA2AD8E01C005C21B7 /* MetroManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838CE9E92AD8E01C005C21B7 /* MetroManager.swift */; };
 		838CE9EC2ADC917B005C21B7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838CE9EB2ADC917A005C21B7 /* MapView.swift */; };
 		8396E5092AD2F93700293314 /* HoustonMetroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8396E5082AD2F93700293314 /* HoustonMetroApp.swift */; };
@@ -24,7 +23,6 @@
 		8396E5212AD61CF000293314 /* RouteStopsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8396E5202AD61CF000293314 /* RouteStopsModel.swift */; };
 		8396E5242AD73B9C00293314 /* MetroInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8396E5232AD73B9C00293314 /* MetroInfoViewModel.swift */; };
 		8396E5282AD7548800293314 /* RouteAndStopPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8396E5272AD7548800293314 /* RouteAndStopPickerView.swift */; };
-		83C1EBE12AE0DA33006E528B /* InfoForRouteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C1EBE02AE0DA33006E528B /* InfoForRouteModel.swift */; };
 		83C1EBE42AE3B425006E528B /* MapLocationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C1EBE32AE3B425006E528B /* MapLocationsModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +32,6 @@
 		8330D9162AE60933000EF1C3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8330D9182AE60979000EF1C3 /* NoInternetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetView.swift; sourceTree = "<group>"; };
 		8330D94F2AE6C7EA000EF1C3 /* HoustonMetro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HoustonMetro.entitlements; sourceTree = "<group>"; };
-		838CE9E72AD8CB3B005C21B7 /* StopsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopsModel.swift; sourceTree = "<group>"; };
 		838CE9E92AD8E01C005C21B7 /* MetroManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroManager.swift; sourceTree = "<group>"; };
 		838CE9EB2ADC917A005C21B7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		8396E5052AD2F93700293314 /* HoustonMetro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoustonMetro.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,7 +46,6 @@
 		8396E5202AD61CF000293314 /* RouteStopsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteStopsModel.swift; sourceTree = "<group>"; };
 		8396E5232AD73B9C00293314 /* MetroInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroInfoViewModel.swift; sourceTree = "<group>"; };
 		8396E5272AD7548800293314 /* RouteAndStopPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteAndStopPickerView.swift; sourceTree = "<group>"; };
-		83C1EBE02AE0DA33006E528B /* InfoForRouteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoForRouteModel.swift; sourceTree = "<group>"; };
 		83C1EBE32AE3B425006E528B /* MapLocationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,7 +86,6 @@
 				8396E5252AD73C1F00293314 /* Views */,
 				8396E5222AD73B7300293314 /* ViewModels */,
 				8396E5262AD73C3E00293314 /* Utilities */,
-				83C1EBE22AE3B401006E528B /* Useless */,
 				8396E50C2AD2F93900293314 /* Assets.xcassets */,
 				8396E50E2AD2F93A00293314 /* Preview Content */,
 			);
@@ -145,15 +140,6 @@
 				8396E51D2AD4D74B00293314 /* Constants.swift */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		83C1EBE22AE3B401006E528B /* Useless */ = {
-			isa = PBXGroup;
-			children = (
-				838CE9E72AD8CB3B005C21B7 /* StopsModel.swift */,
-				83C1EBE02AE0DA33006E528B /* InfoForRouteModel.swift */,
-			);
-			path = Useless;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,10 +212,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				838CE9E82AD8CB3B005C21B7 /* StopsModel.swift in Sources */,
 				8396E5282AD7548800293314 /* RouteAndStopPickerView.swift in Sources */,
 				8330D9192AE60979000EF1C3 /* NoInternetView.swift in Sources */,
-				83C1EBE12AE0DA33006E528B /* InfoForRouteModel.swift in Sources */,
 				838CE9EA2AD8E01C005C21B7 /* MetroManager.swift in Sources */,
 				838CE9EC2ADC917B005C21B7 /* MapView.swift in Sources */,
 				8396E5172AD3450E00293314 /* RouteArrivalsModel.swift in Sources */,
