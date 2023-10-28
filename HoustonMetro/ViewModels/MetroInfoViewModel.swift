@@ -34,9 +34,7 @@ class MetroInfoViewModel: ObservableObject {
     
     
     init() {
-        //        MetroManager.instance.getAllRoutes { [weak self] returnedRoutes in
-        //            self?.routes = returnedRoutes
-        //        }
+
         
         getAllRoutes()
         routePickerSubscriber()

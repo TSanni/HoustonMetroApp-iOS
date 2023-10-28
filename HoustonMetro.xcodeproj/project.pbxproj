@@ -11,6 +11,8 @@
 		8330D9152AE5F2C0000EF1C3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330D9142AE5F2C0000EF1C3 /* NetworkManager.swift */; };
 		8330D9172AE60933000EF1C3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330D9162AE60933000EF1C3 /* HomeView.swift */; };
 		8330D9192AE60979000EF1C3 /* NoInternetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330D9182AE60979000EF1C3 /* NoInternetView.swift */; };
+		837FEAB72AEBEFF00070A9FD /* HoustonMetro_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FEAB62AEBEFF00070A9FD /* HoustonMetro_Tests.swift */; };
+		837FEABE2AEBF0C50070A9FD /* MetroInfoViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FEABD2AEBF0C50070A9FD /* MetroInfoViewModel_Tests.swift */; };
 		838CE9EA2AD8E01C005C21B7 /* MetroManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838CE9E92AD8E01C005C21B7 /* MetroManager.swift */; };
 		838CE9EC2ADC917B005C21B7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838CE9EB2ADC917A005C21B7 /* MapView.swift */; };
 		8396E5092AD2F93700293314 /* HoustonMetroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8396E5082AD2F93700293314 /* HoustonMetroApp.swift */; };
@@ -26,12 +28,25 @@
 		83C1EBE42AE3B425006E528B /* MapLocationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C1EBE32AE3B425006E528B /* MapLocationsModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		837FEAB82AEBEFF00070A9FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8396E4FD2AD2F93700293314 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8396E5042AD2F93700293314;
+			remoteInfo = HoustonMetro;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		8330D9122AE4F3A9000EF1C3 /* BusAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusAnimationView.swift; sourceTree = "<group>"; };
 		8330D9142AE5F2C0000EF1C3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8330D9162AE60933000EF1C3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8330D9182AE60979000EF1C3 /* NoInternetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetView.swift; sourceTree = "<group>"; };
 		8330D94F2AE6C7EA000EF1C3 /* HoustonMetro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HoustonMetro.entitlements; sourceTree = "<group>"; };
+		837FEAB42AEBEFF00070A9FD /* HoustonMetro_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HoustonMetro_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		837FEAB62AEBEFF00070A9FD /* HoustonMetro_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoustonMetro_Tests.swift; sourceTree = "<group>"; };
+		837FEABD2AEBF0C50070A9FD /* MetroInfoViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroInfoViewModel_Tests.swift; sourceTree = "<group>"; };
 		838CE9E92AD8E01C005C21B7 /* MetroManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroManager.swift; sourceTree = "<group>"; };
 		838CE9EB2ADC917A005C21B7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		8396E5052AD2F93700293314 /* HoustonMetro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoustonMetro.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +65,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		837FEAB12AEBEFF00070A9FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8396E5022AD2F93700293314 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -60,10 +82,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		837FEAB52AEBEFF00070A9FD /* HoustonMetro_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				837FEAB62AEBEFF00070A9FD /* HoustonMetro_Tests.swift */,
+				837FEABD2AEBF0C50070A9FD /* MetroInfoViewModel_Tests.swift */,
+			);
+			path = HoustonMetro_Tests;
+			sourceTree = "<group>";
+		};
 		8396E4FC2AD2F93700293314 = {
 			isa = PBXGroup;
 			children = (
 				8396E5072AD2F93700293314 /* HoustonMetro */,
+				837FEAB52AEBEFF00070A9FD /* HoustonMetro_Tests */,
 				8396E5062AD2F93700293314 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				8396E5052AD2F93700293314 /* HoustonMetro.app */,
+				837FEAB42AEBEFF00070A9FD /* HoustonMetro_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,6 +178,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		837FEAB32AEBEFF00070A9FD /* HoustonMetro_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 837FEABC2AEBEFF00070A9FD /* Build configuration list for PBXNativeTarget "HoustonMetro_Tests" */;
+			buildPhases = (
+				837FEAB02AEBEFF00070A9FD /* Sources */,
+				837FEAB12AEBEFF00070A9FD /* Frameworks */,
+				837FEAB22AEBEFF00070A9FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				837FEAB92AEBEFF00070A9FD /* PBXTargetDependency */,
+			);
+			name = HoustonMetro_Tests;
+			productName = HoustonMetro_Tests;
+			productReference = 837FEAB42AEBEFF00070A9FD /* HoustonMetro_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		8396E5042AD2F93700293314 /* HoustonMetro */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8396E5132AD2F93A00293314 /* Build configuration list for PBXNativeTarget "HoustonMetro" */;
@@ -172,6 +223,10 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					837FEAB32AEBEFF00070A9FD = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 8396E5042AD2F93700293314;
+					};
 					8396E5042AD2F93700293314 = {
 						CreatedOnToolsVersion = 15.0;
 					};
@@ -191,11 +246,19 @@
 			projectRoot = "";
 			targets = (
 				8396E5042AD2F93700293314 /* HoustonMetro */,
+				837FEAB32AEBEFF00070A9FD /* HoustonMetro_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		837FEAB22AEBEFF00070A9FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8396E5032AD2F93700293314 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -208,6 +271,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		837FEAB02AEBEFF00070A9FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				837FEABE2AEBF0C50070A9FD /* MetroInfoViewModel_Tests.swift in Sources */,
+				837FEAB72AEBEFF00070A9FD /* HoustonMetro_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8396E5012AD2F93700293314 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -232,7 +304,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		837FEAB92AEBEFF00070A9FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8396E5042AD2F93700293314 /* HoustonMetro */;
+			targetProxy = 837FEAB82AEBEFF00070A9FD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		837FEABA2AEBEFF00070A9FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QNXV57SQKM;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sannideveloper.HoustonMetro-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HoustonMetro.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HoustonMetro";
+			};
+			name = Debug;
+		};
+		837FEABB2AEBEFF00070A9FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QNXV57SQKM;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sannideveloper.HoustonMetro-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HoustonMetro.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HoustonMetro";
+			};
+			name = Release;
+		};
 		8396E5112AD2F93A00293314 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -427,6 +543,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		837FEABC2AEBEFF00070A9FD /* Build configuration list for PBXNativeTarget "HoustonMetro_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				837FEABA2AEBEFF00070A9FD /* Debug */,
+				837FEABB2AEBEFF00070A9FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8396E5002AD2F93700293314 /* Build configuration list for PBXProject "HoustonMetro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

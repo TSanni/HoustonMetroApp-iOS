@@ -13,7 +13,6 @@ struct ContentView: View {
     @EnvironmentObject var networkMonitor: NetworkManager
     var body: some View {
         
-        
         if networkMonitor.isConnected {
             HomeView()
                 .onAppear { metroInfo.getAllRoutes() }
@@ -34,5 +33,3 @@ struct ContentView: View {
             .environmentObject(NetworkManager())
     }
 }
-
-
