@@ -82,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		835975FD2AEEEA5B009318EE /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8330D9142AE5F2C0000EF1C3 /* NetworkManager.swift */,
+				838CE9E92AD8E01C005C21B7 /* MetroManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		837FEAB52AEBEFF00070A9FD /* HoustonMetro_Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +124,7 @@
 				8330D94F2AE6C7EA000EF1C3 /* HoustonMetro.entitlements */,
 				8396E51F2AD4D87000293314 /* Info.plist */,
 				8396E5082AD2F93700293314 /* HoustonMetroApp.swift */,
+				835975FD2AEEEA5B009318EE /* Managers */,
 				8396E51C2AD4D05C00293314 /* Models */,
 				8396E5252AD73C1F00293314 /* Views */,
 				8396E5222AD73B7300293314 /* ViewModels */,
@@ -137,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				8396E51A2AD4CC7800293314 /* RoutesModel.swift */,
-				838CE9E92AD8E01C005C21B7 /* MetroManager.swift */,
 				8396E5202AD61CF000293314 /* RouteStopsModel.swift */,
 				8396E5162AD3450E00293314 /* RouteArrivalsModel.swift */,
 				83C1EBE32AE3B425006E528B /* MapLocationsModel.swift */,
@@ -149,7 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				8396E5232AD73B9C00293314 /* MetroInfoViewModel.swift */,
-				8330D9142AE5F2C0000EF1C3 /* NetworkManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -493,7 +501,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sannideveloper.HoustonMetro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -529,7 +537,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sannideveloper.HoustonMetro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

@@ -30,10 +30,10 @@ struct HomeView: View {
             if metroInfo.dataExists {
                 VStack {
                     Text("Next arrival at... ")
-                        .font(.headline)
+                        .font(.title)
                     
                     Text(metroInfo.earliestArrivalForStop.ArrivalTime)
-                        .font(.largeTitle)
+                        .font(.system(size: 70, weight: .bold, design: .default))
                         .bold()
                     
                     BusAnimationView()
@@ -44,6 +44,7 @@ struct HomeView: View {
                 
                 if let date = metroInfo.date {
                     Text("Last checked: \(date)")
+                        .font(.headline)
                         .multilineTextAlignment(.center)
                     
                 }

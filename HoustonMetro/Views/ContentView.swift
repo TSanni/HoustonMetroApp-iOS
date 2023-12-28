@@ -19,10 +19,7 @@ struct ContentView: View {
         } else {
             NoInternetView()
         }
-        
-        
     }
-    
     
 }
 
@@ -31,5 +28,7 @@ struct ContentView: View {
         ContentView()
             .environmentObject(MetroInfoViewModel())
             .environmentObject(NetworkManager())
+            .preferredColorScheme(.dark)
+
     }
 }

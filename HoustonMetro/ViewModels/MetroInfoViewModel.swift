@@ -21,14 +21,15 @@ class MetroInfoViewModel: ObservableObject {
     
     // This published properties will work with the UI
     @Published var dataExists: Bool = false
-    @Published  var date: Date? = nil
-    
+//    @Published  var date: Date? = nil
+    @Published  var date: String? = nil
+
     
     //These published properties will work with Map
     @Published var locations: [MapLocationsModel] = []
     @Published var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 29.71137, longitude: -95.62941), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     
-    private let mapSpan: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+    private let mapSpan: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
     
     var cancellables = Set<AnyCancellable>()
     
@@ -176,7 +177,7 @@ extension MetroInfoViewModel {
         
         self.earliestArrivalForStop = earliestArrivalsForStop[0]
         self.dataExists = true
-        self.date = Date.now
+        self.date = formatDateToString(date: Date.now)
         
     }
     
@@ -202,6 +203,21 @@ extension MetroInfoViewModel {
         
         /// return the date string
         return newDate
+    }
+    
+    
+    
+    /// This function converts a date object into a readable string object
+    /// - Parameter date: The date object
+    /// - Returns: Returns the time in string format Ex) 7:00 AM
+    private func formatDateToString(date: Date) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mm a"
+        let dateString = dateFormatter.string(from: date)
+        
+        return dateString
+        
     }
     
     
