@@ -15,8 +15,6 @@ struct MapView: View {
         ZStack(alignment: .topLeading) {
                 Map(coordinateRegion: $metroInfo.mapRegion, annotationItems: metroInfo.locations) { location in
                     MapMarker(coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude))
-                    
-                    
                 }
         }
         .ignoresSafeArea()

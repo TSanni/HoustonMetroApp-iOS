@@ -15,6 +15,6 @@ struct MapLocationsModel: Identifiable {
     
     let name: String
     
-    static let MapLocationsModelHolder = MapLocationsModel(latitude: 29.71137, longitude: -95.62941, name: "")
+    static let mapLocationsSample = MapLocationsModel(latitude: 29.71137, longitude: -95.62941, name: "")
 }
 

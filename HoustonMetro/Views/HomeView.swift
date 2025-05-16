@@ -9,10 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var metroInfo: MetroInfoViewModel
-
     @State private var showSettings: Bool = false
     @State private var showMap: Bool = false
-
     
     var body: some View {
         VStack {
@@ -55,16 +53,12 @@ struct HomeView: View {
                         .font(.largeTitle)
                         .bold()
                     
-                    
                     Text("No upcoming arrivals found. Please try another stop or route")
                         .multilineTextAlignment(.center)
-                    
                 }
                 
                 Spacer()
             }
-            
-            
         }
         .padding()
         .background {

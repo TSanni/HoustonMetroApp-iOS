@@ -10,8 +10,7 @@ import SwiftUI
 struct BusAnimationView: View {
     @State private var startBusAnimation: Bool = false
     @EnvironmentObject var metroInfo: MetroInfoViewModel
-
-
+    
     var body: some View {
         VStack {
             Image(systemName: "bus")
@@ -23,7 +22,7 @@ struct BusAnimationView: View {
                 startBusAnimation.toggle()
             }
         }
-
+        
     }
 }
 

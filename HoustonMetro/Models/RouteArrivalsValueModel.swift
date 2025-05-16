@@ -36,7 +36,7 @@ struct RouteArrivalsValueModel: Codable {
     let ArrivalTime: String
     let ScheduledTime: String
     
-    static let sample = RouteArrivalsValueModel(
+    static let routeArrivalsValueSample = RouteArrivalsValueModel(
         IsRealTime: true,
         DirectionText: "",
         ArrivalId: "",
@@ -71,6 +71,4 @@ struct RouteArrivalsValueModel: Codable {
         ArrivalTime: "No arrival times",
         ScheduledTime: ""
     )
-    
-    
 }

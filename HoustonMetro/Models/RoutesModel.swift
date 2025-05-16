@@ -7,13 +7,11 @@
 
 import Foundation
 
-
 struct RoutesModel: Codable {
     let value: [Route]
     
-    static let AllRoutesModelHolder = RoutesModel(value: [Route(RouteId: "Ho414_4620_002", RouteName: "002", LongName: "Bellaire")])
+    static let allRoutesSample = RoutesModel(value: [Route(RouteId: "Ho414_4620_002", RouteName: "002", LongName: "Bellaire")])
 }
-
 
 struct Route: Codable, Identifiable, Hashable {
     
@@ -29,5 +27,5 @@ struct Route: Codable, Identifiable, Hashable {
     let RouteName: String
     let LongName: String
     
-    static let RouteHolder = Route(RouteId: "Ho414_4620_002", RouteName: "002", LongName: "Bellaire")
+    static let routeSample = Route(RouteId: "Ho414_4620_002", RouteName: "002", LongName: "Bellaire")
 }

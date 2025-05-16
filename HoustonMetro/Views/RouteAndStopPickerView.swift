@@ -13,9 +13,7 @@ struct RouteAndStopPickerView: View {
     var body: some View {
         
         VStack {
-       
             List {
-                
                 /// Route picker
                 Section("Routes") {
                     Picker("Route", selection: $metroInfo.routeSelectionPicker) {
@@ -24,7 +22,6 @@ struct RouteAndStopPickerView: View {
                                 .tag(item)
                         }
                     }
-                    
                 }
                 
                 /// Stop picker
@@ -37,7 +34,6 @@ struct RouteAndStopPickerView: View {
                     }
                 }
                 
-                
                 Section("About") {
                     Link("About the Developer", destination: K.linkedInURL)
                     
@@ -46,7 +42,6 @@ struct RouteAndStopPickerView: View {
                     Link("View Developer's GitHub", destination: K.gitHubURL)
                 }
                 .tint(.white)
-                
             }
             
             Button {
@@ -56,18 +51,14 @@ struct RouteAndStopPickerView: View {
                     .font(.largeTitle)
             }
             .tint(.white)
-            
         }
         .padding()
-        
     }
 }
 
 #Preview {
-//    NavigationView {
-        RouteAndStopPickerView()
-            .environmentObject(MetroInfoViewModel())
-//    }
+    RouteAndStopPickerView()
+        .environmentObject(MetroInfoViewModel())
     
 }
 

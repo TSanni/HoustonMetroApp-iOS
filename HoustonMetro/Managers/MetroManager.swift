@@ -7,7 +7,6 @@
 
 import Foundation
 import Combine
-//TODO: Update function descriptions
 
 class MetroManager {
     
@@ -15,15 +14,12 @@ class MetroManager {
     
     var cancellables = Set<AnyCancellable>()
     
-    
-    
     /// Gets all routes and returns a RoutesModel
     func getAllRoutes(completion: @escaping(_ returnedRoutes: RoutesModel) -> Void)  {
         print("getAllRoutes method called")
         
         guard let apiKey = K.apiKey else { return }
         guard let url = URL(string: "\(K.allRoutesURL)\(apiKey)") else { return }
-        
         
         URLSession.shared.dataTaskPublisher(for: url)
             .receive(on: DispatchQueue.main)
@@ -42,16 +38,12 @@ class MetroManager {
                         print("FINISHED DECODING RoutesModel AND GOT ALL ROUTES")
                     case .failure(let error):
                         print("THERE WAS AN ERROR DECODING RoutesModel: \(error)")
-                        
                 }
             } receiveValue: { returnedRoutes in
                 completion(returnedRoutes)
             }
             .store(in: &cancellables)
-        
-        
     }
-    
     
     /// Gets all stops for the passed in routeId and returns a RouteStopsModel
     func getAllStopsForRoute(routeId: String, completion: @escaping(_ returnedStops: RouteStopsModel) -> Void)  {
@@ -72,7 +64,7 @@ class MetroManager {
                 return data
             }
             .decode(type: RouteStopsModel.self, decoder: JSONDecoder())
-            .replaceError(with: RouteStopsModel.RouteStopsModelHolder)
+            .replaceError(with: RouteStopsModel.routeStopsSample)
             .sink { completion in
                 switch completion {
                     case .finished:
@@ -85,8 +77,6 @@ class MetroManager {
                 completion(returnedStops)
             }
             .store(in: &cancellables)
-        
-        
     }
     
     /// Gets all arrivals for the passed in routeId and returns a RouteArrivalsModel
@@ -119,8 +109,5 @@ class MetroManager {
                 completion(returnedArrivals)
             }
             .store(in: &cancellables)
-        
-        
     }
-    
 }

@@ -7,13 +7,11 @@
 
 import Foundation
 
-
 struct RouteStopsModel: Codable {
     let value: [Stops]
 
-    static let RouteStopsModelHolder = RouteStopsModel(value: [Stops(StopId: "Ho414_4620_94_B", DirectionId: "DirectionId", RouteId: "RouteId", Name: "No stops available", StopCode: "StopCode", Lat: 29.71137, Lon: -95.62941)])
+    static let routeStopsSample = RouteStopsModel(value: [Stops(StopId: "Ho414_4620_94_B", DirectionId: "DirectionId", RouteId: "RouteId", Name: "No stops available", StopCode: "StopCode", Lat: 29.71137, Lon: -95.62941)])
 }
-
 
 struct Stops: Codable, Identifiable, Hashable {
     
@@ -29,5 +27,5 @@ struct Stops: Codable, Identifiable, Hashable {
     let Lat: Double
     let Lon: Double
     
-    static let StopsHolder = Stops(StopId: "Ho414_4620_94_B", DirectionId: "DirectionId", RouteId: "RouteId", Name: "No stops available", StopCode: "StopCode", Lat: 29.71137, Lon: -95.62941)
+    static let stopsSample = Stops(StopId: "Ho414_4620_94_B", DirectionId: "DirectionId", RouteId: "RouteId", Name: "No stops available", StopCode: "StopCode", Lat: 29.71137, Lon: -95.62941)
 }

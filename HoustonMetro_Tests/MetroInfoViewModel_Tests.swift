@@ -96,7 +96,7 @@ final class MetroInfoViewModel_Tests: XCTestCase {
         MetroManager.instance.getAllStopsForRoute(routeId: "002") { returnedStops in
             
             if returnedStops.value.isEmpty {
-                vm.stopsForRoute = [Stops.StopsHolder]
+                vm.stopsForRoute = [Stops.stopsSample]
             } else {
                 vm.stopsForRoute = returnedStops.value
             }

@@ -11,19 +11,18 @@ import MapKit
 
 class MetroInfoViewModel: ObservableObject {
     // These two published properties will work with SwiftUI picker views
-    @Published var routeSelectionPicker: Route = Route.RouteHolder
-    @Published var stopSelectionPicker: Stops = Stops.StopsHolder
+    @Published var routeSelectionPicker: Route = Route.routeSample
+    @Published var stopSelectionPicker: Stops = Stops.stopsSample
     
     // These three published properties will be updated with network calls and will work with model structs
-    @Published var routes: RoutesModel = RoutesModel.AllRoutesModelHolder
-    @Published var stopsForRoute: [Stops] = [Stops.StopsHolder]
-    @Published var earliestArrivalForStop: RouteArrivalsValueModel = RouteArrivalsValueModel.sample
+    @Published var routes: RoutesModel = RoutesModel.allRoutesSample
+    @Published var stopsForRoute: [Stops] = [Stops.stopsSample]
+    @Published var earliestArrivalForStop: RouteArrivalsValueModel = RouteArrivalsValueModel.routeArrivalsValueSample
     
     // This published properties will work with the UI
     @Published var dataExists: Bool = false
-//    @Published  var date: Date? = nil
     @Published  var date: String? = nil
-
+    
     
     //These published properties will work with Map
     @Published var locations: [MapLocationsModel] = []
@@ -35,8 +34,6 @@ class MetroInfoViewModel: ObservableObject {
     
     
     init() {
-
-        
         getAllRoutes()
         routePickerSubscriber()
         stopPickerSubscriber()
@@ -47,7 +44,6 @@ class MetroInfoViewModel: ObservableObject {
             self?.routes = returnedRoutes
         }
     }
-    
     
     /// This function subscribes to  @Published routeSelectionPicker and is called each time routeSelectionPicker is updated
     private func routePickerSubscriber() {
@@ -61,8 +57,6 @@ class MetroInfoViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
-    
-    
     
     /// This function subscribes to @Published stopSelectionPicker and is called each time stopSelectionPicker is updated
     private func stopPickerSubscriber() {
@@ -88,8 +82,6 @@ class MetroInfoViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    
-    
     /// Communicates with MetroManager to get all Stops for passed in routeId
     private func getAllStopsForRoute(routeId: String) {
         
@@ -98,18 +90,16 @@ class MetroInfoViewModel: ObservableObject {
             if returnedStops.value.isEmpty {
                 print("\n\n\n NO STOPS!!!! \n\n\n")
                 self?.dataExists = false
-                self?.stopsForRoute = [Stops.StopsHolder]
-                self?.stopSelectionPicker = Stops.StopsHolder
+                self?.stopsForRoute = [Stops.stopsSample]
+                self?.stopSelectionPicker = Stops.stopsSample
                 
             } else {
                 self?.stopsForRoute = returnedStops.value
                 self?.stopSelectionPicker = returnedStops.value[0]
             }
-            
         }
     }
 }
-
 
 extension MetroInfoViewModel {
     
@@ -119,10 +109,9 @@ extension MetroInfoViewModel {
         
         if arrivals.value.isEmpty {
             self.dataExists = false
-            self.earliestArrivalForStop = RouteArrivalsValueModel.sample
+            self.earliestArrivalForStop = RouteArrivalsValueModel.routeArrivalsValueSample
             return
         }
-        
         
         let properStopsForArrival = arrivals.value.filter { arrival in
             arrival.StopId == stop.StopId
@@ -130,7 +119,7 @@ extension MetroInfoViewModel {
         
         guard !properStopsForArrival.isEmpty else {
             self.dataExists = false
-            self.earliestArrivalForStop = RouteArrivalsValueModel.sample
+            self.earliestArrivalForStop = RouteArrivalsValueModel.routeArrivalsValueSample
             return
         }
         
@@ -173,15 +162,10 @@ extension MetroInfoViewModel {
             )
         }
         
-        
-        
         self.earliestArrivalForStop = earliestArrivalsForStop[0]
         self.dataExists = true
         self.date = formatDateToString(date: Date.now)
-        
     }
-    
-    
     
     /// The metro API dates and times are hard to read. This function converts those dates to a readable format
     /// - Parameter stringedDate: The hard to read date is the value passed in
@@ -205,20 +189,14 @@ extension MetroInfoViewModel {
         return newDate
     }
     
-    
-    
     /// This function converts a date object into a readable string object
     /// - Parameter date: The date object
     /// - Returns: Returns the time in string format Ex) 7:00 AM
     private func formatDateToString(date: Date) -> String {
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm a"
         let dateString = dateFormatter.string(from: date)
         
         return dateString
-        
     }
-    
-    
 }
