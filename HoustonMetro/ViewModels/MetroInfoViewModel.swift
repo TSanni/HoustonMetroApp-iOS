@@ -115,11 +115,11 @@ extension MetroInfoViewModel {
     
     /// This function takes in all arrivals for a particular route and a specified stop, then filters to ensure the arrival's stopID and the stop's stopID are equal
     private func filterForEarliestArrival(arrivals: RouteArrivalsModel, stop: Stops) {
-        var earliestArrivalsForStop: [RouteArrivalsValue] = []
+        var earliestArrivalsForStop: [RouteArrivalsValueModel] = []
         
         if arrivals.value.isEmpty {
             self.dataExists = false
-            self.earliestArrivalForStop = RouteArrivalsValue.RouteArrivalsValueHolder
+            self.earliestArrivalForStop = RouteArrivalsValueModel.RouteArrivalsValueHolder
             return
         }
         
@@ -130,12 +130,12 @@ extension MetroInfoViewModel {
         
         guard !properStopsForArrival.isEmpty else {
             self.dataExists = false
-            self.earliestArrivalForStop = RouteArrivalsValue.RouteArrivalsValueHolder
+            self.earliestArrivalForStop = RouteArrivalsValueModel.RouteArrivalsValueHolder
             return
         }
         
         for i in properStopsForArrival {
-            earliestArrivalsForStop.append(RouteArrivalsValue(
+            earliestArrivalsForStop.append(RouteArrivalsValueModel(
                 IsRealTime: i.IsRealTime,
                 DirectionText: i.DirectionText,
                 ArrivalId: i.ArrivalId,

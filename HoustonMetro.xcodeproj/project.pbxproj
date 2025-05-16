@@ -26,6 +26,7 @@
 		8396E5242AD73B9C00293314 /* MetroInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8396E5232AD73B9C00293314 /* MetroInfoViewModel.swift */; };
 		8396E5282AD7548800293314 /* RouteAndStopPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8396E5272AD7548800293314 /* RouteAndStopPickerView.swift */; };
 		83C1EBE42AE3B425006E528B /* MapLocationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C1EBE32AE3B425006E528B /* MapLocationsModel.swift */; };
+		83C3AF2F2DD7D6F500404361 /* RouteArrivalsValueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3AF2E2DD7D6F500404361 /* RouteArrivalsValueModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		8396E5232AD73B9C00293314 /* MetroInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroInfoViewModel.swift; sourceTree = "<group>"; };
 		8396E5272AD7548800293314 /* RouteAndStopPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteAndStopPickerView.swift; sourceTree = "<group>"; };
 		83C1EBE32AE3B425006E528B /* MapLocationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationsModel.swift; sourceTree = "<group>"; };
+		83C3AF2E2DD7D6F500404361 /* RouteArrivalsValueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteArrivalsValueModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				8396E51A2AD4CC7800293314 /* RoutesModel.swift */,
 				8396E5202AD61CF000293314 /* RouteStopsModel.swift */,
 				8396E5162AD3450E00293314 /* RouteArrivalsModel.swift */,
+				83C3AF2E2DD7D6F500404361 /* RouteArrivalsValueModel.swift */,
 				83C1EBE32AE3B425006E528B /* MapLocationsModel.swift */,
 			);
 			path = Models;
@@ -301,6 +304,7 @@
 				83C1EBE42AE3B425006E528B /* MapLocationsModel.swift in Sources */,
 				8396E5242AD73B9C00293314 /* MetroInfoViewModel.swift in Sources */,
 				8396E5212AD61CF000293314 /* RouteStopsModel.swift in Sources */,
+				83C3AF2F2DD7D6F500404361 /* RouteArrivalsValueModel.swift in Sources */,
 				8396E5092AD2F93700293314 /* HoustonMetroApp.swift in Sources */,
 				8396E51B2AD4CC7800293314 /* RoutesModel.swift in Sources */,
 				8330D9152AE5F2C0000EF1C3 /* NetworkManager.swift in Sources */,
