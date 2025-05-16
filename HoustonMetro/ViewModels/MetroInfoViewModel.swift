@@ -17,7 +17,7 @@ class MetroInfoViewModel: ObservableObject {
     // These three published properties will be updated with network calls and will work with model structs
     @Published var routes: RoutesModel = RoutesModel.AllRoutesModelHolder
     @Published var stopsForRoute: [Stops] = [Stops.StopsHolder]
-    @Published var earliestArrivalForStop: RouteArrivalsValue = RouteArrivalsValue.RouteArrivalsValueHolder
+    @Published var earliestArrivalForStop: RouteArrivalsValueModel = RouteArrivalsValueModel.sample
     
     // This published properties will work with the UI
     @Published var dataExists: Bool = false
@@ -119,7 +119,7 @@ extension MetroInfoViewModel {
         
         if arrivals.value.isEmpty {
             self.dataExists = false
-            self.earliestArrivalForStop = RouteArrivalsValueModel.RouteArrivalsValueHolder
+            self.earliestArrivalForStop = RouteArrivalsValueModel.sample
             return
         }
         
@@ -130,7 +130,7 @@ extension MetroInfoViewModel {
         
         guard !properStopsForArrival.isEmpty else {
             self.dataExists = false
-            self.earliestArrivalForStop = RouteArrivalsValueModel.RouteArrivalsValueHolder
+            self.earliestArrivalForStop = RouteArrivalsValueModel.sample
             return
         }
         
