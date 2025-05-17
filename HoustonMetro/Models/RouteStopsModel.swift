@@ -39,9 +39,3 @@ struct Stops: Codable, Identifiable, Hashable {
         case lon = "Lon"
     }
 }
-
-enum CodingKeys: String, CodingKey {
-    case routeId = "RouteId"
-    case routeName = "RouteName"
-    case longName = "LongName"
-}
