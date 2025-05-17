@@ -15,10 +15,10 @@ struct HomeView: View {
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
-                Text("Route \(metroInfo.routeSelectionPicker.RouteName)")
+                Text("Route \(metroInfo.routeSelectionPicker.routeName)")
                     .font(.largeTitle)
                     .bold()
-                Text(metroInfo.stopSelectionPicker.Name)
+                Text(metroInfo.stopSelectionPicker.name)
                     .font(.headline)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -30,7 +30,7 @@ struct HomeView: View {
                     Text("Next arrival at... ")
                         .font(.title)
                     
-                    Text(metroInfo.earliestArrivalForStop.ArrivalTime)
+                    Text(metroInfo.earliestArrivalForStop.arrivalTime)
                         .font(.system(size: 70, weight: .bold, design: .default))
                         .bold()
                     

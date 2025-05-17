@@ -10,22 +10,28 @@ import Foundation
 struct RoutesModel: Codable {
     let value: [Route]
     
-    static let allRoutesSample = RoutesModel(value: [Route(RouteId: "Ho414_4620_002", RouteName: "002", LongName: "Bellaire")])
+    static let allRoutesSample = RoutesModel(value: [Route(routeId: "Ho414_4620_002", routeName: "002", longName: "Bellaire")])
 }
 
 struct Route: Codable, Identifiable, Hashable {
     
     var id: String {
-        return RouteId
+        return routeId
     }
     
     var fullName: String {
-        return RouteName + " - " + LongName
+        return routeName + " - " + longName
     }
     
-    let RouteId: String
-    let RouteName: String
-    let LongName: String
+    let routeId: String
+    let routeName: String
+    let longName: String
     
-    static let routeSample = Route(RouteId: "Ho414_4620_002", RouteName: "002", LongName: "Bellaire")
+    static let routeSample = Route(routeId: "Ho414_4620_002", routeName: "002", longName: "Bellaire")
+    
+    enum CodingKeys: String, CodingKey {
+        case routeId = "RouteId"
+        case routeName = "RouteName"
+        case longName = "LongName"
+    }
 }

@@ -28,7 +28,7 @@ struct RouteAndStopPickerView: View {
                 Section("Stops") {
                     Picker("Stops", selection: $metroInfo.stopSelectionPicker) {
                         ForEach(metroInfo.stopsForRoute) { item in
-                            Text(item.Name)
+                            Text(item.name)
                                 .tag(item)
                         }
                     }

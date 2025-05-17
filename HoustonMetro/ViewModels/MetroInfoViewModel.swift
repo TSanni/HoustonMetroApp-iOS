@@ -53,7 +53,7 @@ class MetroInfoViewModel: ObservableObject {
             .sink { [weak self] route in
                 print("ROUTE SELECTION PICKER VALUE: \(route)")
                 
-                self?.getAllStopsForRoute(routeId: route.RouteName)
+                self?.getAllStopsForRoute(routeId: route.routeName)
             }
             .store(in: &cancellables)
     }
@@ -66,13 +66,13 @@ class MetroInfoViewModel: ObservableObject {
             .sink { stop in
                 self.locations = []
                 
-                MetroManager.instance.getAllArrivalsForRoute(routeId: self.routeSelectionPicker.RouteName) { arrivals in
+                MetroManager.instance.getAllArrivalsForRoute(routeId: self.routeSelectionPicker.routeName) { arrivals in
                     self.filterForEarliestArrival(arrivals: arrivals, stop: stop)
                 }
                 
-                let latitude = stop.Lat
-                let longitude = stop.Lon
-                let stopName = stop.Name
+                let latitude = stop.lat
+                let longitude = stop.lon
+                let stopName = stop.name
                 let center = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
                 self.mapRegion = MKCoordinateRegion(center: center, span: self.mapSpan)
                 
@@ -114,7 +114,7 @@ extension MetroInfoViewModel {
         }
         
         let properStopsForArrival = arrivals.value.filter { arrival in
-            arrival.StopId == stop.StopId
+            arrival.stopId == stop.stopId
         }
         
         guard !properStopsForArrival.isEmpty else {
@@ -125,39 +125,39 @@ extension MetroInfoViewModel {
         
         for i in properStopsForArrival {
             earliestArrivalsForStop.append(RouteArrivalsValueModel(
-                IsRealTime: i.IsRealTime,
-                DirectionText: i.DirectionText,
-                ArrivalId: i.ArrivalId,
-                AgencyId: i.AgencyId,
-                AgencyAbbreviation: i.AgencyAbbreviation,
-                ServiceDate: i.ServiceDate,
-                LocalArrivalTime: getDate(stringedDate: i.LocalArrivalTime),
-                LocalDepartureTime: getDate(stringedDate: i.LocalDepartureTime),
-                UtcArrivalTime: getDate(stringedDate: i.UtcArrivalTime),
-                UtcDepartureTime: getDate(stringedDate: i.UtcDepartureTime),
-                DestinationName: i.DestinationName,
-                DestinationStopId: i.DestinationStopId,
-                DirectionId: i.DirectionId,
-                Direction: i.Direction,
-                RouteId: i.RouteId,
-                ServiceId: i.ServiceId,
-                StopId: i.StopId,
-                TripId: i.TripId,
-                LocalTripStartTime: getDate(stringedDate: i.LocalTripStartTime),
-                LocalTripEndTime: getDate(stringedDate: i.LocalTripEndTime),
-                StopName: i.StopName,
-                StopSequence: i.StopSequence,
-                RouteName: i.RouteName,
-                RouteType: i.RouteType,
-                DelaySeconds: i.DelaySeconds,
-                VehicleID: i.VehicleID,
-                CarCount: i.CarCount,
-                Frequency: i.Frequency,
-                ConfidenceLevel: i.ConfidenceLevel,
-                Status: i.Status,
-                DestinationStopName: i.DestinationStopName,
-                ArrivalTime: getDate(stringedDate: i.ArrivalTime),
-                ScheduledTime: getDate(stringedDate: i.ScheduledTime)
+                isRealTime: i.isRealTime,
+                directionText: i.directionText,
+                arrivalId: i.arrivalId,
+                agencyId: i.agencyId,
+                agencyAbbreviation: i.agencyAbbreviation,
+                serviceDate: i.serviceDate,
+                localArrivalTime: getDate(stringedDate: i.localArrivalTime),
+                localDepartureTime: getDate(stringedDate: i.localDepartureTime),
+                utcArrivalTime: getDate(stringedDate: i.utcArrivalTime),
+                utcDepartureTime: getDate(stringedDate: i.utcDepartureTime),
+                destinationName: i.destinationName,
+                destinationStopId: i.destinationStopId,
+                directionId: i.directionId,
+                direction: i.direction,
+                routeId: i.routeId,
+                serviceId: i.serviceId,
+                stopId: i.stopId,
+                tripId: i.tripId,
+                localTripStartTime: getDate(stringedDate: i.localTripStartTime),
+                localTripEndTime: getDate(stringedDate: i.localTripEndTime),
+                stopName: i.stopName,
+                stopSequence: i.stopSequence,
+                routeName: i.routeName,
+                routeType: i.routeType,
+                delaySeconds: i.delaySeconds,
+                vehicleID: i.vehicleID,
+                carCount: i.carCount,
+                frequency: i.frequency,
+                confidenceLevel: i.confidenceLevel,
+                status: i.status,
+                destinationStopName: i.destinationStopName,
+                arrivalTime: getDate(stringedDate: i.arrivalTime),
+                scheduledTime: getDate(stringedDate: i.scheduledTime)
             )
             )
         }
